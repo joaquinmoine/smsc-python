@@ -1,7 +1,7 @@
-import re
 import requests
+import urllib
 
-from .exceptions import AreaCodeSMSCError, LocalNumberSMSCError, PhoneNumberLongSMSCError
+from smsc.validations import validate_phone_number
 
 
 class SMSC(object):
@@ -12,23 +12,17 @@ class SMSC(object):
         self.apiversion = apiversion
 
     def _url(self, cmd, **kwargs):
-        url = 'https://www.smsc.com.ar'
-        basic = '/api/{}/?alias={}&apikey={}&cmd={}'.format(self.apiversion, self.alias, self.apikey, cmd)
-        extra = ''
-        for k, v in kwargs.items():
-            extra += '&{}={}'.format(k, v)
-        return url+basic+extra
-
-    def _validate_phone_number(self, area_code, local_number):
-        if re.match(r'^\d{2,4}$', area_code):
-            raise AreaCodeSMSCError(area_code, 'area_code: This param is invalid')
-        if re.match(r'^\d{6,8}$', local_number):
-            raise LocalNumberSMSCError(local_number, 'local_number: This param is invalid')
-        if re.match(r'^\d{10}$', area_code+local_number):
-            raise PhoneNumberLongSMSCError(area_code+local_number, 'The number should be 10 digits')
+        url = 'https://www.smsc.com.ar/api/{}/?'.format(self.apiversion)
+        params = {
+            'alias': self.alias,
+            'apikey': self.apikey,
+            'cmd': cmd
+        }
+        params.update(dict(kwargs.items()))
+        return url+urllib.parse.urlencode(params)
 
     def send(self, area_code, local_number, msj, time=None):
-        self._validate_phone_number(area_code, local_number)
+        validate_phone_number(area_code, local_number)
         kwargs = {
             'num': '{}-{}'.format(area_code, local_number),
             'msj': msj
