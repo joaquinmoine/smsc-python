@@ -1,19 +1,16 @@
 from setuptools import setup
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
-
 setup(
     name='smsc-python',
     packages=['smsc'],
-    version='1.0',
+    version='1.0.1',
     description='Send SMS with https://www.smsc.com.ar/',
     author='Joaquin Moine',
     author_email='joaquinmoine@gmail.com',
     url='https://github.com/joaquinmoine/smsc-python',
     license=open('LICENSE').read(),
     keywords=['sms', 'send'],
-    install_requires=requirements,
+    install_requires=['requests>=2.18.4'],
     test_suite='tests',
     classifiers=[
         'Development Status :: 5 - Production/Stable',

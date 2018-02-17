@@ -3,7 +3,7 @@ You should be register in [SMSC](https://www.smsc.com.ar/usuario/iniciar/) and t
 
 ## Install
 ```
-pip install smsc
+pip install smsc-python
 ```
 
 ## Usage
