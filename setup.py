@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 
 setup(
     name='smsc-python',
-    packages=['smsc-python'],
+    packages=['smsc'],
     version='1.0',
     description='Send SMS with https://www.smsc.com.ar/',
     author='Joaquin Moine',
@@ -25,6 +25,6 @@ setup(
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Topic :: Utilities',
-        'License :: OSI Approved :: MIT License'
+        'License :: OSI Approved :: MIT License',
     ],
 )
