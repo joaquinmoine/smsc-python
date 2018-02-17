@@ -8,7 +8,7 @@ setup(
     author='Joaquin Moine',
     author_email='joaquinmoine@gmail.com',
     url='https://github.com/joaquinmoine/smsc-python',
-    license=open('LICENSE').read(),
+    license='MIT',
     keywords=['sms', 'send'],
     install_requires=['requests>=2.18.4'],
     test_suite='tests',
