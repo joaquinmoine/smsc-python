@@ -8,7 +8,6 @@ setup(
     packages=['smsc-python'],
     version='1.0',
     description='Send SMS with https://www.smsc.com.ar/',
-    long_description=open('README.md').read(),
     author='Joaquin Moine',
     author_email='joaquinmoine@gmail.com',
     url='https://github.com/joaquinmoine/smsc-python',
