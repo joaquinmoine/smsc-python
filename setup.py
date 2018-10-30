@@ -10,7 +10,7 @@ setup(
     url='https://github.com/joaquinmoine/smsc-python',
     license='MIT',
     keywords=['sms', 'send'],
-    install_requires=['requests>=2.18.4'],
+    install_requires=['requests>=2.20.0'],
     test_suite='tests',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
