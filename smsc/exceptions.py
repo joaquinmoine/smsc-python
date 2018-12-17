@@ -14,3 +14,6 @@ class LocalNumberSMSCError(BaseSMSCError):
 
 class PhoneNumberLongSMSCError(BaseSMSCError):
     pass
+
+class PriorityOutOfRangeError(BaseSMSCError):
+    pass
