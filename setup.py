@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='smsc-python',
     packages=['smsc'],
-    version='1.1.2',
+    version='1.1.0',
     description='Send SMS with https://www.smsc.com.ar/',
     author='Joaquin Moine',
     author_email='joaquinmoine@gmail.com',
