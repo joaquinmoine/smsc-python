@@ -1,6 +1,6 @@
 import re
 
-from smsc.exceptions import AreaCodeSMSCError, LocalNumberSMSCError, PhoneNumberLongSMSCError
+from smsc.exceptions import AreaCodeSMSCError, LocalNumberSMSCError, PhoneNumberLongSMSCError, PriorityOutOfRangeError
 
 
 def validate_phone_number(area_code, local_number):
@@ -48,4 +48,4 @@ def validate_priority(priority):
     :return: None
     """
     if not 1<=priority<=7:
-        raise PriorityOutOfRangeError('The priority must be between 1 and 8')
+        raise PriorityOutOfRangeError('The priority must be between 1 and 7')
