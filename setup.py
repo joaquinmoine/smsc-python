@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='smsc-python',
     packages=['smsc'],
-    version='1.0.2',
+    version='1.1.2',
     description='Send SMS with https://www.smsc.com.ar/',
     author='Joaquin Moine',
     author_email='joaquinmoine@gmail.com',
@@ -21,6 +21,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Utilities',
         'License :: OSI Approved :: MIT License',
     ],
