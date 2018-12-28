@@ -1,5 +1,7 @@
 import unittest
-from smsc.validations import validate_area_code, validate_local_number, validate_length_phone_number
+from smsc.validations import (validate_area_code, validate_local_number, validate_length_phone_number,
+                              validate_phone_numbers, validate_priority)
+from smsc.exceptions import PhoneNumberLongSMSCError, PriorityOutOfRangeError
 
 
 class TestValidations(unittest.TestCase):
@@ -21,3 +23,15 @@ class TestValidations(unittest.TestCase):
         invalid_number = '123456789'
         self.assertTrue(validate_length_phone_number(valid_number))
         self.assertFalse(validate_length_phone_number(invalid_number))
+
+    def test_validate_phones(self):
+        valid_numbers = [('123', '4567890'), ('1234', '567890')]
+        invalid_numbers = [('11', '4567890'), ('10', '567890')]
+        self.assertIsNone(validate_phone_numbers(valid_numbers))
+        self.assertRaises(PhoneNumberLongSMSCError, validate_phone_numbers, invalid_numbers)
+
+    def test_validate_priority(self):
+        valid_priority = 5
+        invalid_priority = 8
+        self.assertIsNone(validate_priority(valid_priority))
+        self.assertRaises(PriorityOutOfRangeError, validate_priority, invalid_priority)
