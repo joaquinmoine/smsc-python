@@ -48,4 +48,4 @@ def validate_priority(priority):
     :return: None
     """
     if not 1<=priority<=7:
-        raise PriorityOutOfRangeError('The priority must be between 1 and 7')
+        raise PriorityOutOfRangeError(priority, 'The priority must be between 1 and 7')

@@ -28,10 +28,10 @@ class TestValidations(unittest.TestCase):
         valid_numbers = [('123', '4567890'), ('1234', '567890')]
         invalid_numbers = [('11', '4567890'), ('10', '567890')]
         self.assertIsNone(validate_phone_numbers(valid_numbers))
-        self.assertRaises(PhoneNumberLongSMSCError, validate_phone_numbers(invalid_numbers))
+        self.assertRaises(PhoneNumberLongSMSCError, validate_phone_numbers, invalid_numbers)
 
     def test_validate_priority(self):
         valid_priority = 5
         invalid_priority = 8
         self.assertIsNone(validate_priority(valid_priority))
-        self.assertRaises(PriorityOutOfRangeError, validate_priority(invalid_priority))
+        self.assertRaises(PriorityOutOfRangeError, validate_priority, invalid_priority)
