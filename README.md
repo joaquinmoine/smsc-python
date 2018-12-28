@@ -15,7 +15,8 @@ sms = SMSC(alias='your_alias', apikey='your_api_key')
 
 Send an SMS
 ```
-result = sms.send(area_code='123', local_number='4567890', msj='Hello world!')
+result = sms.send(area_code='123', local_number='4567890', msg='Hello world!')
+result = sms.send_many([('123', '4567890'), ('321', '6549870')], msg='Hello world!')
 ```
 
 SMS sents
